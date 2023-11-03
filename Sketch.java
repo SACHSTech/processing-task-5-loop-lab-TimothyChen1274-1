@@ -1,5 +1,9 @@
 import processing.core.PApplet;
 
+/** 
+ * A program that creates square patterns which differ in 8 quadrants.
+ * @author : T. Chen
+ */
 public class Sketch extends PApplet {
 	
 	
@@ -74,10 +78,10 @@ public class Sketch extends PApplet {
     int intX = 0;
     int intY = 0;
 
-    for(int intRow = 0; intRow < 30; intRow++){
-      for(int intColumn = 0; intColumn < 30; intColumn++){
-        intX = 3 + 0;  //Instead of zero, calculate the proper intX location using 'intRow'
-        intY = 300 + 3 + 0; //Instead of zero, calculate the proper intY location using 'intColumn'
+    for(int intRow = 0; intRow < 30; intRow ++){
+      for(int intColumn = 0; intColumn < 30; intColumn ++){
+        intX = 3 + intRow * 10;  //Instead of zero, calculate the proper intX location using 'intRow'
+        intY = 300 + 3 + intColumn*10; //Instead of zero, calculate the proper intY location using 'intColumn'
 
         fill(255);
         noStroke();
@@ -92,7 +96,28 @@ public class Sketch extends PApplet {
    * Don't loop from 30 to 60 to shift everything over, just add 300 to x.
    */
   public void draw_section2(){
+    int intX = 0;
+    int intY = 0;
+    int intC = 0;
 
+    for(int intRow = 0; intRow < 30; intRow ++){
+      for(int intColumn = 0; intColumn < 30; intColumn ++){
+        for(int intColour = 1; intColour < 30; intColour += 2){
+        intX = 300 + 3 + intRow * 10;  //Instead of zero, calculate the proper intX location using 'intRow'
+        intY = 300 + 3 + intColumn * 10; //Instead of zero, calculate the proper intY location using 'intColumn'
+       
+        fill(255);
+        noStroke();
+        rect(intX, intY, 5, 5);
+
+        intC = 300 + 3 + intColour*10;
+        fill(0);
+        noStroke();
+        rect(intC, intY, 5, 5);
+
+      }
+    }
+  }
   }
 
   /**
@@ -100,33 +125,136 @@ public class Sketch extends PApplet {
    * Don't use multiple 'if' statements.
    */
   public void draw_section3(){
+    int intX = 0;
+    int intY = 0;
+    int intC = 0;
 
+    for(int intRow = 0; intRow < 30; intRow ++){
+      for(int intColumn = 0; intColumn < 30; intColumn ++){
+        for(int intColour = 0; intColour < 30; intColour += 2){
+        intX = 600 + 3 + intRow * 10;  //Instead of zero, calculate the proper intX location using 'intRow'
+        intY = 300 + 3 + intColumn * 10; //Instead of zero, calculate the proper intY location using 'intColumn'
+       
+        fill(255);
+        noStroke();
+        rect(intX, intY, 5, 5);
+
+        intC = 300 + 3 + intColour*10;
+        fill(0);
+        noStroke();
+        rect(intX, intC, 5, 5);
+
+      }
+    }
+  }
   }
 
   /**
    * Use the modulus operator and just one 'if' statement to select the color.
    */
   public void draw_section4(){
+    int intX = 0;
+    int intY = 0;
+    int intCX = 0;
+    int intCY = 0;
 
+    for(int intRow = 0; intRow < 30; intRow ++){
+      for(int intColumn = 0; intColumn < 30; intColumn ++){
+        for(int intColourX = 1; intColourX < 30; intColourX += 2){
+          for(int intColourY = 0; intColourY < 30; intColourY += 2){
+        intX = 900 + 3 + intRow * 10;  //Instead of zero, calculate the proper intX location using 'intRow'
+        intY = 300 + 3 + intColumn * 10; //Instead of zero, calculate the proper intY location using 'intColumn'
+       
+        fill(255);
+        noStroke();
+        rect(intX, intY, 5, 5);
+
+        intCX = 900 + 3 + intColourX * 10;
+        fill(0);
+        noStroke();
+        rect(intCX, intY, 5, 5);
+
+        intCY = 300 + 3 + intColourY * 10;
+        fill(0);
+        noStroke();
+        rect(intX, intCY, 5, 5);
+
+
+      }
+    }
   }
+}
+}
 
   /**
    * Do NOT use 'if' statements to complete 5-8. Manipulate the loops instead
    */
   public void draw_section5(){
+    int intX = 0;
+    int intY = 0;
 
+    for(int intColumn = 0; intColumn <= 30; intColumn ++){
+      for(int intRow = 0; intRow <= 30 - intColumn; intRow ++){
+        intX = 3 + (30 - intRow) * 10;  //Instead of zero, calculate the proper intX location using 'intRow'
+        intY = 3 + (30 - intColumn) * 10; //Instead of zero, calculate the proper intY location using 'intColumn'
+
+        fill(255);
+        noStroke();
+        rect(intX, intY, 5, 5);
+
+      }
+    }
   }
 
   public void draw_section6(){
+    int intX = 0;
+    int intY = 0;
 
+    for(int intRow = 30; intRow > 0; intRow --){
+      for(int intColumn = 30; intColumn >= intRow; intColumn --){
+        intX = 300 + intRow * 10 - 7;  //Instead of zero, calculate the proper intX location using 'intRow'
+        intY = intColumn * 10 - 7; //Instead of zero, calculate the proper intY location using 'intColumn'
+
+        fill(255);
+        noStroke();
+        rect(intX, intY, 5, 5);
+
+      }
+    }
   }
 
   public void draw_section7(){
+    int intX = 0;
+    int intY = 0;
 
+    for(int intRow = 0; intRow < 30; intRow ++){
+      for(int intColumn = 0; intColumn < 30 - intRow; intColumn ++){
+        intX = 600 + intRow * 10 + 3;  //Instead of zero, calculate the proper intX location using 'intRow'
+        intY = 3 + intColumn * 10; //Instead of zero, calculate the proper intY location using 'intColumn'
+
+        fill(255);
+        noStroke();
+        rect(intX, intY, 5, 5);
+
+      }
+    }
   }
   
   public void draw_section8(){
+    int intX = 0;
+    int intY = 0;
 
+    for(int intRow = 0; intRow < 30; intRow ++){
+      for(int intColumn = 0; intColumn <= intRow; intColumn ++){
+        intX = 900 + intRow * 10 + 3;  //Instead of zero, calculate the proper intX location using 'intRow'
+        intY = 3 + intColumn * 10; //Instead of zero, calculate the proper intY location using 'intColumn'
+
+        fill(255);
+        noStroke();
+        rect(intX, intY, 5, 5);
+
+      }
+    }
   }
 
 
